@@ -26,8 +26,9 @@ gcloud builds submit --tag gcr.io/${GOOGLE_CLOUD_PROJECT}/helloword
 ```sh
 gcloud run deploy --image gcr.io/${GOOGLE_CLOUD_PROJECT}/helloword --platform managed
 ```
-_a) Se solicitará el nombre del servicio, presiona enter para aceptar el nombre predeterminado `helloworld`_
-_b) Se solicitará la región, seleccionas la region que mas se adapte a tu localización, por ejemplo, us-central1._
+_a) Se solicitará el nombre del servicio, presiona enter para aceptar el nombre predeterminado `helloworld`._
+
+_b) Se solicitará la región, seleccionas la region que mas se adapte a tu localización, por ejemplo, `us-central1`._
 
 
 ## Implementar
