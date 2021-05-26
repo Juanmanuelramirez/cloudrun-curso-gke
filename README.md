@@ -1,31 +1,34 @@
 # Muestra de Cloud Run Hello World
 
-Esta muestra muestra c髆o implementar una aplicaci髇 Hello World en Cloud Run.
+Esta muestra muestra c贸mo implementar una aplicaci贸n Hello World en Cloud Run.
 
 [![Run in Google Cloud][run_img]][run_link]
 
 [run_img]: https://storage.googleapis.com/cloudrun/button.svg
 [run_link]: https://console.cloud.google.com/cloudshell/editor?shellonly=true&cloudshell_image=gcr.io/cloudrun/button&cloudshell_git_repo=https://github.com/GoogleCloudPlatform/python-docs-samples&cloudshell_working_dir=run/helloworld
 
+## Clonamos nuestro repositorio
+
+```sh
+git clone https://github.com/Juanmanuelramirez/cloudrun-curso-gke.git
+```
+
 ## Construir
+_Nota: Recuerda obtener el Id de tu proyecto y sustituirlo antes de correr esta instrucci贸n._
 
-```
-docker build --tag helloworld: python.
-```
-
-## Ejecutar localmente
-
-```
-Docker ejecutar --rm -p 9090: 8080 -e PUERTO = 8080 helloworld: python
+```sh
+export GOOGLE_CLOUD_PROJECT=<PROJECT_ID>
+gcloud builds submit --tag gcr.io/${GOOGLE_CLOUD_PROJECT}/helloword
 ```
 
-## Prueba
+## Implementaci贸n en Cloud Run
 
+```sh
+gcloud run deploy --image gcr.io/${GOOGLE_CLOUD_PROJECT}/helloword --platform managed
 ```
-pytest
-```
+_a) Se solicitar谩 el nombre del servicio, presiona enter para aceptar el nombre predeterminado `helloworld`_
+_b) Se solicitar谩 la regi贸n, seleccionas la region que mas se adapte a tu localizaci贸n, por ejemplo, us-central1._
 
-_Nota: es posible que deba instalar `pytest` usando` pip install pytest` ._
 
 ## Implementar
 
@@ -33,7 +36,7 @@ _Nota: es posible que deba instalar `pytest` usando` pip install pytest` ._
 # Configura una variable de entorno con tu ID de proyecto de GCP
 export GOOGLE_CLOUD_PROJECT=<PROJECT_ID>
 
-# Env韆 una compilaci髇 con Google Cloud Build
+# Env铆a una compilaci贸n con Google Cloud Build
 gcloud builds submit --tag gcr.io/${GOOGLE_CLOUD_PROJECT}/helloworld
 
 # Implementar en Cloud Run
