@@ -35,7 +35,7 @@ _b) Se solicitará la región, seleccionas la region que mas se adapte a tu loca
 
 ```sh
 # Configura una variable de entorno con tu ID de proyecto de GCP
-export GOOGLE_CLOUD_PROJECT=<PROJECT_ID>
+export GOOGLE_CLOUD_PROJECT=$(gcloud config get-value project)
 
 # Envía una compilación con Google Cloud Build
 gcloud builds submit --tag gcr.io/${GOOGLE_CLOUD_PROJECT}/helloworld
