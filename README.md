@@ -17,7 +17,7 @@ git clone https://github.com/Juanmanuelramirez/cloudrun-curso-gke.git
 _Nota: Recuerda obtener el Id de tu proyecto y sustituirlo antes de correr esta instrucción._
 
 ```sh
-export GOOGLE_CLOUD_PROJECT=<PROJECT_ID>
+export GOOGLE_CLOUD_PROJECT=$(gcloud config get-value project)
 gcloud builds submit --tag gcr.io/${GOOGLE_CLOUD_PROJECT}/helloword
 ```
 
